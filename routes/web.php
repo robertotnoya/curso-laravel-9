@@ -16,3 +16,13 @@ Route::get('/users/{id}',[UserController::class, 'show'])->name('users.show');
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('email-test', function(){
+
+    $details['email'] = 'robertotnoya@gmail.com';
+    $details['sales'] = 200;
+
+    dispatch(new App\Jobs\DailyReportJob($details));
+
+    dd('done');
+});
