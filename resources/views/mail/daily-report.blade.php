@@ -1,2 +1,2 @@
 
-E-mail 111
+E-mail {{ $details['email'] }}
