@@ -17,12 +17,7 @@ class DailyReport extends Mailable
     {
         $this->details = $details;
     }
-
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
+    
     public function build()
     {
         return $this->view('mail.daily-report',[
