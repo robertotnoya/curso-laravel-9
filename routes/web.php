@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\{
     UserController,
+    MailController
 };
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/users',[UserController::class, 'index'])->name('users.index');
 Route::put('/users/{id}',[UserController::class, 'update'])->name('users.update');
@@ -20,9 +22,19 @@ Route::get('/', function () {
 Route::get('email-test', function(){
 
     $details['email'] = 'robertotnoya@gmail.com';
-    $details['sales'] = 200;
+    $details['name'] = 'Roberto Noya';
 
     dispatch(new App\Jobs\DailyReportJob($details));
 
-    dd('done');
+    //Mail::to($details['email'])->send(new App\Mail\DailyReport($details));
+
+    /*
+    return view('mail.daily-report', [
+        'details' => $details
+    ]);
+    */
+    return 'fim';
 });
+
+Route::get('/mails',[MailController::class, 'index'])->name('mails.index');
+

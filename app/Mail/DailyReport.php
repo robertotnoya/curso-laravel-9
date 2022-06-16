@@ -11,16 +11,11 @@ class DailyReport extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $sales;
+    public $details;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($sales)
+    public function __construct($details)
     {
-        $this->sales = $sales;
+        $this->details = $details;
     }
 
     /**
@@ -30,8 +25,8 @@ class DailyReport extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.daily-report', [
-            'sales' => $this->sales
+        return $this->view('mail.daily-report',[
+            'details' => $this->details
         ]);
     }
 }
