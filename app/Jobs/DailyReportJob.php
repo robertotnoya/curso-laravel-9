@@ -24,7 +24,7 @@ class DailyReportJob implements ShouldQueue
 
     public function handle()
     {
-        $email = new DailyReport($this->details);
-        Mail::to($this->details['email'])->send($email);
+        $details = new DailyReport($this->details);
+        Mail::to($this->details['email'])->send($details);
     }
 }
