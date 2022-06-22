@@ -1,2 +1,2 @@
 
-E-mail {{ $details['email'] }}
+E-mail 4 {{ $details['email'] }}

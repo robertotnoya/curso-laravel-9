@@ -17,7 +17,7 @@ class DailyReportJob implements ShouldQueue
 
     public $details;
 
-    public function __construct($details)
+    public function __construct(array $details)
     {
         $this->details = $details;
     }
